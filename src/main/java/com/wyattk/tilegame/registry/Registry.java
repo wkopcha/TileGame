@@ -14,6 +14,7 @@ import com.wyattk.tilegame.recipe.RecipeNull;
 import com.wyattk.tilegame.tile.Tile;
 import com.wyattk.tilegame.util.ErrorLog;
 import com.wyattk.tilegame.util.GameRandom;
+import com.wyattk.tilegame.util.Position;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -158,9 +159,9 @@ public class Registry {
         return new RecipeNull();
     }
 
-    public static Tile getTileInstance(String tileId){
+    public static Tile getTileInstance(String tileId, Position position){
         try {
-            return Registry.fetchTileById(tileId).newInstance();
+            return Registry.fetchTileById(tileId).getDeclaredConstructor(Position.class).newInstance(position);
         }catch(Exception e){
             ErrorLog.log("TILE", e);
         }

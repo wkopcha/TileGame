@@ -20,8 +20,8 @@ public abstract class TilePlant extends TileFlammable{
             for (int y = 0; y < 3; y++)
                 if (!(x == 1 && y == 1) && spreadPlantLife(getPosition().getX() - 1 + x, getPosition().getY() - 1 + y, world)) {
                     if(GameRandom.coinFlip(CHANCE_TO_CONVERT))
-                        world.putTile(
-                                Registry.getTileInstance(world.getTile(getPosition().getX() - 1 + x, getPosition().getY() - 1 + y).getId())));
+                        world.putTile(getPosition().getX(), getPosition().getY(),
+                                Registry.getTileInstance(world.getTile(getPosition().getX() - 1 + x, getPosition().getY() - 1 + y).getId(), getPosition()));
                     setFireState(FireState.NONE);
                     setVariant("");
                     return;

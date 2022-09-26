@@ -1,6 +1,5 @@
 package com.wyattk.tilegame.tile;
 
-import com.wyattk.tilegame.material.MaterialNull;
 import com.wyattk.tilegame.util.FireState;
 import com.wyattk.tilegame.util.Position;
 import com.wyattk.tilegame.util.TileVoter;
